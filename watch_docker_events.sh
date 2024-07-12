@@ -17,10 +17,10 @@ get_token() {
 API_TOKEN=$(get_token)
 disable_probe() {
   local monitor_id=$1
-  curl -X POST "${UPTIME_KUMA_API}/api/monitor/${monitor_id}/disable" \
+  curl -X POST "${UPTIME_KUMA_API}/monitors/${monitor_id}/pause" \
     -H "Authorization: Bearer ${API_TOKEN}" \
     -H "Content-Type: application/json" \
-    -d "{\"disable\":true}"
+    -d ""
 }
 
 get_monitors() {
